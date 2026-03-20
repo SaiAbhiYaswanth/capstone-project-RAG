@@ -6,4 +6,5 @@ chromadb
 sentence-transformers
 pypdf
 python-dotenv
-uuid
+rank-bm25
+numpy
