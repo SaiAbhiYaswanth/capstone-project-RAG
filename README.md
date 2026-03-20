@@ -177,11 +177,9 @@ streamlit run app.py
 
 ## 👨‍💻 Author
 
-**Sai Abhi Yaswanth**
+**Aravapalli Sai Abhi Yaswanth**
 
 ---
 
 ## ⭐ Support
-If you find this project useful, consider giving it a ⭐ on GitHub!
-
 If you find this project useful, consider giving it a ⭐ on GitHub!
