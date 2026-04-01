@@ -8,7 +8,7 @@ from embeddings import EmbeddingModel
 from rank_bm25 import BM25Okapi
 import numpy as np
 
-from langgraph.graph import StateGraph, START, END
+from langgraph.graph import StateGraph
 from typing import TypedDict, List
 
 
@@ -214,12 +214,16 @@ Make the explanation easy to understand for a student.
         builder.add_node("rerank", self.rerank_node)
         builder.add_node("generate_answer", self.generate_answer_node)
 
-        builder.add_edge(START, "vector_search")
+        # Entry node (replacement for START)
+        builder.set_entry_point("vector_search")
+
         builder.add_edge("vector_search", "keyword_search")
         builder.add_edge("keyword_search", "hybrid")
         builder.add_edge("hybrid", "rerank")
         builder.add_edge("rerank", "generate_answer")
-        builder.add_edge("generate_answer", END)
+
+        # Finish node (replacement for END)
+        builder.set_finish_point("generate_answer")
 
         return builder.compile()
 
